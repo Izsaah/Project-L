@@ -1,0 +1,1 @@
+Tạo file scene theo npc, global để handle riêng, nếu có test thì tự tạo nhân vật player đừng commit đó là đc 
