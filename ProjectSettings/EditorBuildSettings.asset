@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Debug.unity
+    guid: f7a7556cc0fc4ab40a73afa1b70accb3
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Debug map/Debug_1.unity
+    guid: 802a05acf7104e7469a35f8237c1c44e
+  - enabled: 1
+    path: Assets/Scenes/Debug map/Debug_2.unity
+    guid: 947ec905e2475d743b3f5e1d36e3595c
+  - enabled: 1
+    path: Assets/Scenes/Debug map/Debug_3.unity
+    guid: d69922979c040a746a24c476b80e1dbd
+  - enabled: 1
+    path: Assets/Scenes/Debug map/Debug_4.unity
+    guid: 25c22dbf5758ad448abc7690118b2204
   m_configObjects: {}
