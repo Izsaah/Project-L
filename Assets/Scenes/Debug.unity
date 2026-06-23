@@ -228,7 +228,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115051321}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6988b7821806baf46b51a3728cd2a945, type: 3}
   m_Name: 
@@ -253,11 +253,40 @@ MonoBehaviour:
           m_StringArgument: test_thought
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 347041238}
-        m_TargetAssemblyTypeName: ProjectL.Global.Script.Interact.LaunchPhysicsObject,
+      - m_Target: {fileID: 405645921}
+        m_TargetAssemblyTypeName: ProjectL.Global.Script.CutScenes.CutSceneUIManager,
           Assembly-CSharp
-        m_MethodName: Launch
-        m_Mode: 1
+        m_MethodName: ShowImage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: note_test
+          m_BoolArgument: 0
+        m_CallState: 2
+  destroyTriggerAfter: 0
+--- !u!114 &115051326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115051321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 636a5985b9217bd44b4ed33c03c3e2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversation: {fileID: 11400000, guid: 8f4d1c861bf4f5a4c9ab884ed605f3f6, type: 2}
+  onChatFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 115051326}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -266,16 +295,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  destroyTriggerAfter: 0
---- !u!114 &347041238 stripped
+      - m_Target: {fileID: 115051323}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &405645921 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 82813223234081915, guid: 189211fb1c64612409ddd78a3f8aa5f6, type: 3}
-  m_PrefabInstance: {fileID: 874756491}
+  m_CorrespondingSourceObject: {fileID: 4469399797586929643, guid: d3ab22405b7fb434f92cf10e0bfd8fa6, type: 3}
+  m_PrefabInstance: {fileID: 7733908404194061612}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d8771ff3dc996b47a52c36ee3df45ef, type: 3}
+  m_Script: {fileID: 11500000, guid: ff282dff0c904dc43802ed9422b00612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &828782657 stripped
@@ -367,6 +407,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3795211460398470663, guid: 189211fb1c64612409ddd78a3f8aa5f6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 115051323}
+    - targetCorrespondingSourceObject: {fileID: 3795211460398470663, guid: 189211fb1c64612409ddd78a3f8aa5f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 115051326}
   m_SourcePrefab: {fileID: 100100000, guid: 189211fb1c64612409ddd78a3f8aa5f6, type: 3}
 --- !u!114 &1128038176 stripped
 MonoBehaviour:

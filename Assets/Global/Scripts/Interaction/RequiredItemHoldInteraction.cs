@@ -89,6 +89,7 @@ namespace ProjectL.Global.Script.interaction
             onSuccuessI?.Invoke();
             if (destroyTriggerAfter)
             {
+                alreadyTrigger = true;
                 StateMem state = GetComponent<StateMem>(); if (state != null)
                 {
                     state.destroyNremember();

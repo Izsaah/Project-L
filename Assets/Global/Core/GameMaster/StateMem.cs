@@ -33,7 +33,21 @@ namespace ProjectL.Global.Core.GameMaster
             }
             Destroy(gameObject);
         }
-
+        public void SP(int progress)
+        {
+            if (GameManager.Instance != null && GameManager.Instance.worldState != null)
+            {
+                GameManager.Instance.worldState.SaveProgress(ID, progress);
+            }
+        }
+        public int LP(int defaultV)
+        {
+            if (GameManager.Instance != null && GameManager.Instance.worldState != null)
+            {
+                return GameManager.Instance.worldState.GetProgress(ID, defaultV);
+            }
+            return defaultV;
+        }
     }
 
 }

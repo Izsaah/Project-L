@@ -15,7 +15,7 @@ namespace ProjectL.Global.Script.interaction
         [Header("HOW LONG HAVE IT BEEN HAHAHAHAHAH")]
         public int timeCostInMinutes = 15;
         [Header("YOOO WHAT IN YO TOOL BOX DUMBASS!!!!")]
-        public ItemData requiredTool;
+        public List<ItemData> requiredTool = new List<ItemData>();
         public String actionText = "";
 
         [Header("HOLY SHIT IT WORK what now tho ?")]
@@ -29,6 +29,20 @@ namespace ProjectL.Global.Script.interaction
         private PlayerInventory playerInventory;
         private bool alreadyTrigger = false;
 
+
+        private void Start()
+        {
+            StateMem state = GetComponent<StateMem>();
+            if (state != null)
+            {
+                int savecount = state.LP(requiredTool.Count);
+                while (requiredTool.Count > savecount)
+                {
+                    requiredTool.RemoveAt(0);
+                }
+            }
+
+        }
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player") && !alreadyTrigger)
@@ -36,7 +50,7 @@ namespace ProjectL.Global.Script.interaction
                 playerInRange = true;
                 playerInput = other.GetComponent<IInputProvider>();
                 playerInventory = other.GetComponent<PlayerInventory>();
-                Debug.Log($"Press 'E' to {actionText}(requires{requiredTool.iN})");
+                Debug.Log($"Press 'E' to {actionText} (requires {requiredTool.Count} items)");
             }
         }
 
@@ -52,37 +66,87 @@ namespace ProjectL.Global.Script.interaction
 
         private void Update()
         {
-            if (playerInRange && !alreadyTrigger && playerInput != null && playerInput.GetInteract())
+            if (!playerInRange || alreadyTrigger || playerInput == null || playerInventory == null)
             {
-                ItemData cHItem = playerInventory.hotbarSlot[playerInventory.activeSlotIndex];
-                if (cHItem == requiredTool)
-                {
-                    alreadyTrigger = true;
-                    Debug.Log("Success! lol");
-                    if (GameManager.Instance != null && GameManager.Instance.timeManager != null)
-                    {
-                        GameManager.Instance.timeManager.UpdateTime(timeCostInMinutes);
-                    }
+                return;
+            }
 
-                    onSuccessI?.Invoke();
+            if (!playerInput.GetInteract())
+            {
+                return;
+            }
 
-                    if (destroyTriggerAfter)
-                    {
-                        StateMem state = GetComponent<StateMem>();
-                        if (state != null)
-                        {
-                            state.destroyNremember();
-                        }
-                        else
-                        {
-                            Destroy(gameObject);
-                        }
-                    }
-                }
-                else
-                {
-                    GameManager.Instance.monologueUI.ST("missing_tool");
-                }
+            if (requiredTool.Count <= 0)
+            {
+                CompleteInteraction();
+                return;
+            }
+
+            int activeSlot = playerInventory.activeSlotIndex;
+
+            if (activeSlot < 0 || activeSlot >= playerInventory.hotbarSlot.Length)
+            {
+                ShowMonologue("missing_tool");
+                return;
+            }
+
+            ItemData currentHeldItem = playerInventory.hotbarSlot[activeSlot];
+
+            if (currentHeldItem == null || !requiredTool.Contains(currentHeldItem))
+            {
+                ShowMonologue("missing_tool");
+                return;
+            }
+
+            requiredTool.Remove(currentHeldItem);
+            playerInventory.hotbarSlot[activeSlot] = null;
+
+            if (requiredTool.Count > 0)
+            {
+                Debug.Log($"Accepted {currentHeldItem.iN}. Still need {requiredTool.Count} more.");
+                ShowMonologue("partial_success");
+                if (TryGetComponent<StateMem>(out StateMem mem)) mem.SP(requiredTool.Count);
+                return;
+            }
+
+            CompleteInteraction();
+        }
+
+        private void CompleteInteraction()
+        {
+            alreadyTrigger = true;
+
+            Debug.Log("Success! All required items delivered!");
+
+            if (GameManager.Instance != null && GameManager.Instance.timeManager != null)
+            {
+                GameManager.Instance.timeManager.UpdateTime(timeCostInMinutes);
+            }
+
+            onSuccessI?.Invoke();
+
+            if (!destroyTriggerAfter)
+            {
+                return;
+            }
+
+            StateMem state = GetComponent<StateMem>();
+
+            if (state != null)
+            {
+                state.destroyNremember();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        private void ShowMonologue(string textKey)
+        {
+            if (GameManager.Instance != null && GameManager.Instance.monologueUI != null)
+            {
+                GameManager.Instance.monologueUI.ST(textKey);
             }
         }
     }
