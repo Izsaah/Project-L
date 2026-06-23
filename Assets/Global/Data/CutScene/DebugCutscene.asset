@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   db:
   - key: note_test
-    imageSprite: {fileID: 21300000, guid: e1921a3e1d98373428ad3774580ccdfa, type: 3}
+    imageSprite:
+    - {fileID: 21300000, guid: e1921a3e1d98373428ad3774580ccdfa, type: 3}
+    - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

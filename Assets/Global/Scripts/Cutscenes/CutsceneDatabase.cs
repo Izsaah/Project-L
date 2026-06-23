@@ -13,10 +13,10 @@ namespace ProjectL.Global.Script.CutScenes
             public string key;
 
             [Tooltip("Drag the actual 2d picture")]
-            public Sprite imageSprite;
+            public Sprite[] imageSprite;
         }
         public List<CutsceneLine> db = new List<CutsceneLine>();
-        public Sprite getImage(string key)
+        public Sprite[] getImage(string key)
         {
             foreach (CutsceneLine line in db)
             {

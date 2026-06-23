@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 namespace ProjectL.Global.Script.CutScenes
 {
@@ -15,6 +16,12 @@ namespace ProjectL.Global.Script.CutScenes
         [Tooltip("THE BUUUUUUUUUUTOOOOOOOOON")]
         public GameObject bgBlocker;
 
+        [Header("ReplayEvents")]
+        [Tooltip("Put what to do when finish")]
+        public UnityEvent Finish;
+
+        private Sprite[] cSequence;
+        private int cSI = 0;
         private void Awake()
         {
             hideAllImages();
@@ -22,27 +29,17 @@ namespace ProjectL.Global.Script.CutScenes
 
         public void ShowImage(string id)
         {
-            if (db == null)
-            {
-                Debug.LogWarning("CutSceneUIManager: db is missing.");
-                return;
-            }
+            if (db == null || dbImage == null) return;
 
-            if (dbImage == null)
-            {
-                Debug.LogWarning("CutSceneUIManager: dbImage is missing.");
-                return;
-            }
+            cSequence = db.getImage(id);
 
-            Sprite sprite = db.getImage(id);
-
-            if (sprite == null)
+            if (cSequence == null || cSequence.Length == 0)
             {
                 Debug.LogWarning($"CutSceneUIManager: image key not found: {id}");
                 return;
             }
-
-            dbImage.sprite = sprite;
+            cSI = 0;
+            dbImage.sprite = cSequence[cSI];
             dbImage.gameObject.SetActive(true);
 
             if (bgBlocker != null)
@@ -53,7 +50,18 @@ namespace ProjectL.Global.Script.CutScenes
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-
+        public void NextSlide()
+        {
+            cSI++;
+            if (cSI < cSequence.Length)
+            {
+                dbImage.sprite = cSequence[cSI];
+            }
+            else
+            {
+                hideAllImages();
+            }
+        }
         public void hideAllImages()
         {
             if (dbImage != null)
@@ -68,6 +76,7 @@ namespace ProjectL.Global.Script.CutScenes
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            Finish?.Invoke();
         }
     }
 }
