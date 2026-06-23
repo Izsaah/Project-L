@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634141067055d84449c2e09ff0bbffc9, type: 3}
+  m_Name: LanguageDB_English
+  m_EditorClassIdentifier: 
+  db:
+  - key: test_thought
+    tText: 'let see how smart you are : )
+
+'
+  - key: missing_tool
+    tText: You are missing something
+  - key: heavy_item
+    tText: 'this is hard but gotta keep going '
