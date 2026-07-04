@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using ProjectL.Global.Script.Player;
+using ProjectL.Scripts.Interface;
 using UnityEngine;
 
 public class DoorInteract : MonoBehaviour
 {
     private Animator animator;
+
+    private IInputProvider inputProvider;
     private bool isOpen = false;
     
     // THE SHIELD: Locks the door while it is moving
     private bool isAnimating = false; 
+
+    // THE TRIGGER LOCK: Only lets the player interact if they are inside the box
+    private bool isPlayerNear = false;
 
     [Header("Settings")]
     [Tooltip("The exact length of your folding animation in seconds")]
@@ -18,12 +25,21 @@ public class DoorInteract : MonoBehaviour
     {
         // Grabs the Animator component attached to the door
         animator = GetComponent<Animator>();
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            inputProvider = playerObj.GetComponent<IInputProvider>();
+        }
+        else
+        {
+            Debug.LogError("DoorInteract could not find the Player! Check your tags.");
+        }
     }
 
     void Update()
     {
-        // Checks if the player presses E AND the door is NOT currently animating
-        if (Input.GetKeyDown(KeyCode.E) && !isAnimating)
+        // Now checks 3 things: Are they near? Did they press E? Is the door done moving?
+        if (isPlayerNear && inputProvider.GetInteract() && !isAnimating)
         {
             StartCoroutine(ToggleDoorRoutine());
         }
@@ -51,5 +67,24 @@ public class DoorInteract : MonoBehaviour
 
         // 4. Unlock the door so the player can press E again!
         isAnimating = false; 
+    }
+
+    // --- NEW: TRIGGER ZONE LOGIC ---
+    private void OnTriggerEnter(Collider other)
+    {
+        // When the player steps into the green box
+        if (other.CompareTag("Player")) 
+        {
+            isPlayerNear = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        // When the player steps out of the green box
+        if (other.CompareTag("Player")) 
+        {
+            isPlayerNear = false;
+        }
     }
 }

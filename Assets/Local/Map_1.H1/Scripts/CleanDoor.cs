@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using ProjectL.Scripts.Interface;
 
 public class CleanDoor : MonoBehaviour
 {
@@ -11,14 +12,26 @@ public class CleanDoor : MonoBehaviour
     private bool isOpen = false;
     private bool isPlayerNear = false; 
     private Vector3 closedRotation;
+
+    private IInputProvider inputProvider;
     
     void Start(){
         closedRotation = transform.localEulerAngles;
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        
+        if (playerObj != null)
+        {
+            inputProvider = playerObj.GetComponent<IInputProvider>();
+        }
+        else
+        {
+            Debug.LogError("CleanDoor could not find the Player! Make sure your player character has the 'Player' tag.");
+        }
     }
 
     void Update()
     {
-        if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerNear && inputProvider != null && inputProvider.GetInteract())
         {
             ToggleDoor();
         }
