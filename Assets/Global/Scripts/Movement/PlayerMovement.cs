@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ProjectL.Global.Script.Audio;
 using ProjectL.Global.Script.Inventory;
 using ProjectL.Global.Script.Player;
 using ProjectL.Scripts.Interface;
@@ -20,6 +21,11 @@ namespace ProjectL.Global.Script.Movement
         [Header("Settings")]
         [SerializeField] private MovementSettings settings;
 
+        [Header("Audio Integration")]
+        [SerializeField] private SurfaceDetector surfaceDetector;
+        [Tooltip("How far the player needs to walk before playing a step sound.")]
+        [SerializeField] private float stepDistance = 2.0f;
+
         private IInputProvider inputProvider;
         private CharacterController controller;
         private PlayerInventory playerInventory;
@@ -27,6 +33,7 @@ namespace ProjectL.Global.Script.Movement
         private Vector3 velocity;
         private float cStamina;
         public bool isExhausted = false;
+        private float accumulatedDistance = 0f;
 
         private void Awake()
         {
@@ -43,14 +50,25 @@ namespace ProjectL.Global.Script.Movement
         // Update is called once per frame
         private void Update()
         {
-
+            // 1. Process Physical Forces & Input Direction via Utilities
             velocity.y = MUtils.gCheck(controller, velocity.y);
             bool carry = playerInventory.IsHoldingHeavyItem();
+
             Vector3 hVelocity = MUtils.CHM(transform, settings, inputProvider, ref cStamina, ref isExhausted, Time.deltaTime, carry);
             velocity.y = MUtils.CJAG(velocity.y, settings, inputProvider, controller);
 
+            // 2. Execute Translation
             Vector3 fVelocity = hVelocity + velocity;
             controller.Move(fVelocity * Time.deltaTime);
+
+            // 3. Evaluate Step Sound Boundaries Natively
+            if (MUtils.CalculateStepProgress(hVelocity, controller.isGrounded, ref accumulatedDistance, stepDistance, Time.deltaTime))
+            {
+                if (surfaceDetector != null)
+                {
+                    surfaceDetector.DSAPA();
+                }
+            }
         }
     }
 
