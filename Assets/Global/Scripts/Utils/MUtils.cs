@@ -70,4 +70,28 @@ public static class MUtils
         }
         return currentY + (mS.gravity * Time.deltaTime);
     }
+    /// <summary>
+    /// Processes walking distance accumulation based on horizontal velocity and returns true exactly when a physical step occurs.
+    /// </summary>
+    public static bool CalculateStepProgress(Vector3 horizontalVelocity, bool isGrounded, ref float currentDistance, float maxStepDistance, float dt)
+    {
+        // Rule: Only accumulate distance if the entity is physically touching the ground and actively moving
+        if (isGrounded && horizontalVelocity.sqrMagnitude > 0.01f)
+        {
+            currentDistance += horizontalVelocity.magnitude * dt;
+
+            if (currentDistance >= maxStepDistance)
+            {
+                currentDistance = 0f; // Reset accumulation cycle
+                return true;
+            }
+        }
+        else if (!isGrounded)
+        {
+            // Reset state in mid-air so landing doesn't instantly snap trigger an audio distortion
+            currentDistance = 0f;
+        }
+
+        return false;
+    }
 }

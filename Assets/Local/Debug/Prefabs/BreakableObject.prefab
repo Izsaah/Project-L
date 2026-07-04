@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.0236, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5517086390779982852}
@@ -52,7 +52,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 1, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5846574538397066992
 MonoBehaviour:
@@ -66,7 +66,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cc46b9c8f7d254b9bb990371efc96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredTool: {fileID: 11400000, guid: 955355c6b1f31ea4998f27527e838bbb, type: 2}
+  timeCostInMinutes: 15
+  requiredTool:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   actionText: EEEEEEE
   onSuccessI:
     m_PersistentCalls:

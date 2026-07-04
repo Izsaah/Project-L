@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ProjectL.Global.Script.Audio;
 using ProjectL.Global.Script.Monologue;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace ProjectL.Global.Core.GameMaster
     [RequireComponent(typeof(WorldStateManager))]
     [RequireComponent(typeof(DroppedItemManager))]
     [RequireComponent(typeof(TimeManager))]
+    [RequireComponent(typeof(AudioManager))]
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance;
@@ -16,6 +18,7 @@ namespace ProjectL.Global.Core.GameMaster
         public WorldStateManager worldState { get; private set; }
         public DroppedItemManager droppedItems { get; private set; }
         public TimeManager timeManager { get; private set; }
+        public AudioManager audioManager { get; private set; }
 
         public MonologueUI monologueUI { get; private set; }
 
@@ -31,6 +34,7 @@ namespace ProjectL.Global.Core.GameMaster
                 worldState = GetComponent<WorldStateManager>();
                 droppedItems = GetComponent<DroppedItemManager>();
                 timeManager = GetComponent<TimeManager>();
+                audioManager = GetComponent<AudioManager>();
 
                 monologueUI = FindAnyObjectByType<MonologueUI>();
             }
