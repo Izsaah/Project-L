@@ -590,6 +590,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6127643491535322119, guid: d3ab22405b7fb434f92cf10e0bfd8fa6, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 1542959914}
     - target: {fileID: 7365831216811785362, guid: d3ab22405b7fb434f92cf10e0bfd8fa6, type: 3}
       propertyPath: m_Name
       value: InventoryUI
@@ -621,7 +625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460675752798008283, guid: 8264026f89e2a0642a6621484cb2b254, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.61
+      value: -47.58
       objectReference: {fileID: 0}
     - target: {fileID: 4460675752798008283, guid: 8264026f89e2a0642a6621484cb2b254, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1013,6 +1017,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5510232501788178807, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
   m_PrefabInstance: {fileID: 1388232059}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1542959914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5007751884413398478, guid: 8264026f89e2a0642a6621484cb2b254, type: 3}
+  m_PrefabInstance: {fileID: 541749618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a1e470e3b698643a8e7ee1199a4545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1673237295
 GameObject:
   m_ObjectHideFlags: 0
