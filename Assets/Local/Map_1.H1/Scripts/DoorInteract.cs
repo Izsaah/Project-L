@@ -4,17 +4,18 @@ using ProjectL.Global.Script.Player;
 using ProjectL.Scripts.Interface;
 using UnityEngine;
 
-public class DoorInteract : MonoBehaviour
+namespace ProjectL.Local.Map_1_H1
 {
+    public class DoorInteract : MonoBehaviour
+    {
     private Animator animator;
 
     private IInputProvider inputProvider;
     private bool isOpen = false;
-    
-    // THE SHIELD: Locks the door while it is moving
     private bool isAnimating = false; 
 
-    // THE TRIGGER LOCK: Only lets the player interact if they are inside the box
+    [Header("Lock Settings")]
+    public bool isLocked = true; // Starts locked
     private bool isPlayerNear = false;
 
     [Header("Settings")]
@@ -23,7 +24,6 @@ public class DoorInteract : MonoBehaviour
 
     void Start()
     {
-        // Grabs the Animator component attached to the door
         animator = GetComponent<Animator>();
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
@@ -38,8 +38,8 @@ public class DoorInteract : MonoBehaviour
 
     void Update()
     {
-        // Now checks 3 things: Are they near? Did they press E? Is the door done moving?
-        if (isPlayerNear && inputProvider.GetInteract() && !isAnimating)
+        // FIXED: Added !isLocked condition
+        if (!isLocked && isPlayerNear && inputProvider != null && inputProvider.GetInteract() && !isAnimating)
         {
             StartCoroutine(ToggleDoorRoutine());
         }
@@ -47,12 +47,9 @@ public class DoorInteract : MonoBehaviour
 
     private IEnumerator ToggleDoorRoutine()
     {
-        // 1. Lock the door so spamming E does nothing
         isAnimating = true; 
-        
-        isOpen = !isOpen; // Flips the boolean
+        isOpen = !isOpen; 
 
-        // 2. Play the correct animation
         if (isOpen)
         {
             animator.Play("DoorOpen");
@@ -62,17 +59,18 @@ public class DoorInteract : MonoBehaviour
             animator.Play("DoorClose");
         }
 
-        // 3. Force the script to wait until the animation is fully completed
         yield return new WaitForSeconds(animationLength);
-
-        // 4. Unlock the door so the player can press E again!
         isAnimating = false; 
     }
 
-    // --- NEW: TRIGGER ZONE LOGIC ---
+    public void UnlockDoor()
+    {
+        isLocked = false;
+        Debug.Log("The door has been unlocked!");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        // When the player steps into the green box
         if (other.CompareTag("Player")) 
         {
             isPlayerNear = true;
@@ -81,10 +79,10 @@ public class DoorInteract : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        // When the player steps out of the green box
         if (other.CompareTag("Player")) 
         {
             isPlayerNear = false;
         }
     }
+}
 }
