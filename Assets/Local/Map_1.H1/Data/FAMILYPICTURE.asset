@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e9603d37138a043977b17898af3365, type: 3}
+  m_Name: FAMILYPICTURE
+  m_EditorClassIdentifier: 
+  iN: FamilyPicture
+  i: {fileID: 21300000, guid: 594bed5de484ad24e9631c87ef64c0d4, type: 3}
+  size: 1
+  fab: {fileID: 7839611800503767692, guid: af0d600c3e31db248ba32cc952afb4ca, type: 3}
+  rotOS: {x: 0, y: 0, z: 0}
