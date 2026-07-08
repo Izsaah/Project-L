@@ -607,21 +607,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2067108269452348259, guid: 8264026f89e2a0642a6621484cb2b254, type: 3}
-      propertyPath: settings.moveSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2067108269452348259, guid: 8264026f89e2a0642a6621484cb2b254, type: 3}
-      propertyPath: settings.sprintSpeed
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 3532988954443751894, guid: 8264026f89e2a0642a6621484cb2b254, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532988954443751894, guid: 8264026f89e2a0642a6621484cb2b254, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460675752798008283, guid: 8264026f89e2a0642a6621484cb2b254, type: 3}
       propertyPath: m_LocalPosition.x
@@ -686,7 +674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008274484027435306, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_Radius
-      value: 150
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5510232501788178807, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_LocalPosition.x
