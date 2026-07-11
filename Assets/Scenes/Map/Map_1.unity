@@ -331,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008274484027435306, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_Radius
-      value: 60
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5510232501788178807, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -450,7 +450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008274484027435306, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_Radius
-      value: 60
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5510232501788178807, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -678,7 +678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008274484027435306, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_Radius
-      value: 60
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5510232501788178807, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -748,7 +748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008274484027435306, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_Radius
-      value: 60
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5510232501788178807, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -895,7 +895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008274484027435306, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_Radius
-      value: 60
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5510232501788178807, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -965,7 +965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008274484027435306, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_Radius
-      value: 60
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5510232501788178807, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1146,7 +1146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008274484027435306, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_Radius
-      value: 60
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5510232501788178807, guid: f5fc2793eea9fa4469880733ede95f56, type: 3}
       propertyPath: m_LocalPosition.x
