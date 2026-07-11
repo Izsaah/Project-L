@@ -19,15 +19,12 @@ namespace ProjectL.Global.Script.CutScenes
         [Header("ReplayEvents")]
         [Tooltip("Put what to do when finish")]
         public UnityEvent Finish;
-
+        //this should fix it 
+        public static CutSceneUIManager Instance;
         private Sprite[] cSequence;
         private int cSI = 0;
         private void Awake()
         {
-            if (CutSceneUIManager.Instance != null)
-            {
-                CutSceneUIManager.Instance.ShowImage(CutSceneID);
-            }
             hideAllImages();
         }
 

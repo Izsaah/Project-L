@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7006727845858847207}
   - component: {fileID: 8548411299514947970}
   - component: {fileID: 1410256554696319321}
-  - component: {fileID: 4532231788940684443}
   - component: {fileID: 1836448180787505276}
   - component: {fileID: 7777870903229176753}
   m_Layer: 0
@@ -123,23 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: plane1
---- !u!114 &4532231788940684443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413059599084708897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6473bc87b4ff50d4cb36016d34b52c67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  possibleLocations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  UIID: plane1
 --- !u!114 &1836448180787505276
 MonoBehaviour:
   m_ObjectHideFlags: 0
