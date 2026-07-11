@@ -18,13 +18,16 @@ namespace ProjectL.Global.Script.Times
             clockText = GetComponent<TextMeshProUGUI>();
 
         }
-        private void Start()
+        //please let hope it fix PLEASEEEEEEEEEEEEEEEEEEEEE
+
+        private IEnumerator Start()
         {
-            if (GameManager.Instance != null && GameManager.Instance.timeManager)
+            while (GameManager.Instance == null || GameManager.Instance.timeManager == null)
             {
-                GameManager.Instance.timeManager.OntimeChanged += UpdateClockDisplay;
-                UpdateClockDisplay(GameManager.Instance.timeManager.currentTime);
+                yield return null;
             }
+            GameManager.Instance.timeManager.OntimeChanged += UpdateClockDisplay;
+            UpdateClockDisplay(GameManager.Instance.timeManager.currentTime);
         }
 
         private void UpdateClockDisplay(int totalMinutes)

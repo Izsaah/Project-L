@@ -27,13 +27,24 @@ namespace ProjectL.Global.Script.Dialogue
                 pI = other.GetComponent<IInputProvider>();
             }
         }
-
+        // fix lol
         private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("Player"))
             {
                 pIR = false;
                 pI = null;
+                if (iC)
+                {
+                    if (DialogueUIManager.Instance != null)
+                    {
+                        // Force the UI to close!
+                        DialogueUIManager.Instance.EndConversation();
+                    }
+
+                    // Reset our local boolean so the trigger can be used again later
+                    iC = false;
+                }
             }
         }
 

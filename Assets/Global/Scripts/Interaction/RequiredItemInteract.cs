@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using ProjectL.Global.Core.GameMaster;
 using ProjectL.Global.Script.Inventory;
 using ProjectL.Scripts.Interface;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-//todo: check why the trigger still alive but can't retrigger with the same items ?
+
 namespace ProjectL.Global.Script.interaction
 {
     public class RequiredItemInteract : MonoBehaviour
     {
         [Header("HOW LONG HAVE IT BEEN HAHAHAHAHAH")]
         public int timeCostInMinutes = 15;
+
         [Header("YOOO WHAT IN YO TOOL BOX DUMBASS!!!!")]
         public List<ItemData> requiredTool = new List<ItemData>();
         public String actionText = "";
@@ -25,10 +25,16 @@ namespace ProjectL.Global.Script.interaction
         public bool destroyTriggerAfter = true;
 
         private bool playerInRange = false;
-        private IInputProvider playerInput;
-        private PlayerInventory playerInventory;
         private bool alreadyTrigger = false;
 
+        private IInputProvider playerInput;
+        private PlayerInventory playerInventory;
+        private List<ItemData> originalRequirements = new List<ItemData>();
+
+        private void Awake()
+        {
+            originalRequirements = new List<ItemData>(requiredTool);
+        }
 
         private void Start()
         {
@@ -41,8 +47,8 @@ namespace ProjectL.Global.Script.interaction
                     requiredTool.RemoveAt(0);
                 }
             }
-
         }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player") && !alreadyTrigger)
@@ -61,20 +67,15 @@ namespace ProjectL.Global.Script.interaction
                 playerInRange = false;
                 playerInput = null;
                 playerInventory = null;
+                alreadyTrigger = false;
             }
         }
 
         private void Update()
         {
-            if (!playerInRange || alreadyTrigger || playerInput == null || playerInventory == null)
-            {
-                return;
-            }
+            if (!playerInRange || alreadyTrigger || playerInput == null || playerInventory == null) return;
 
-            if (!playerInput.GetInteract())
-            {
-                return;
-            }
+            if (!playerInput.GetInteract()) return;
 
             if (requiredTool.Count <= 0)
             {
@@ -83,7 +84,6 @@ namespace ProjectL.Global.Script.interaction
             }
 
             int activeSlot = playerInventory.activeSlotIndex;
-
             if (activeSlot < 0 || activeSlot >= playerInventory.hotbarSlot.Length)
             {
                 ShowMonologue("missing_tool");
@@ -98,24 +98,25 @@ namespace ProjectL.Global.Script.interaction
                 return;
             }
 
+            // Item Delivered!
             requiredTool.Remove(currentHeldItem);
-            playerInventory.hotbarSlot[activeSlot] = null;
+            playerInventory.RemoveItem(currentHeldItem);
 
             if (requiredTool.Count > 0)
             {
                 Debug.Log($"Accepted {currentHeldItem.iN}. Still need {requiredTool.Count} more.");
                 ShowMonologue("partial_success");
                 if (TryGetComponent<StateMem>(out StateMem mem)) mem.SP(requiredTool.Count);
-                return;
             }
-
-            CompleteInteraction();
+            else
+            {
+                CompleteInteraction();
+            }
         }
 
         private void CompleteInteraction()
         {
             alreadyTrigger = true;
-
             Debug.Log("Success! All required items delivered!");
 
             if (GameManager.Instance != null && GameManager.Instance.timeManager != null)
@@ -127,11 +128,11 @@ namespace ProjectL.Global.Script.interaction
 
             if (!destroyTriggerAfter)
             {
+                requiredTool = new List<ItemData>(originalRequirements);
                 return;
             }
 
             StateMem state = GetComponent<StateMem>();
-
             if (state != null)
             {
                 state.destroyNremember();

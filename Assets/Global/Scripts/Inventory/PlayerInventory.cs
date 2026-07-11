@@ -168,5 +168,29 @@ namespace ProjectL.Global.Script.Inventory
             Debug.Log("Dropped: " + data.iN);
             OnInventoryChanged?.Invoke();
         }
+        //the ai told me this will work so i believe it will work : )
+        public void RemoveItem(ItemData itemToRemove)
+        {
+            if (itemToRemove == null) return;
+
+            // Loop through and clear any slots holding this item
+            for (int i = 0; i < hotbarSlot.Length; i++)
+            {
+                if (hotbarSlot[i] == itemToRemove)
+                {
+                    hotbarSlot[i] = null;
+                }
+            }
+
+            // If we just removed the item we were currently holding, destroy the visual model
+            if (hotbarSlot[activeSlotIndex] == null && currentHeldModel != null)
+            {
+                Destroy(currentHeldModel);
+                lastEIndex = -1; // Reset so EquipItem knows to update next time we switch slots
+            }
+
+            // Tell the UI to update!
+            OnInventoryChanged?.Invoke();
+        }
     }
 }

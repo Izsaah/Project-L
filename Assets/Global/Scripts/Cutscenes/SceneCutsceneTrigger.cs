@@ -19,20 +19,29 @@ namespace ProjectL.Local.MainMenu.Scripts.MenuUI
         [Tooltip("FUCK YOU HEADER")]
         public MonoBehaviour playerH;
 
-
-        private void Start()
+        // this will not break i swear to god =))))))))) bruh bruh lmao
+        private void Awake()
         {
+            if (CutSceneUIManager.Instance != null)
+            {
+                CutSceneUIManager.Instance.ShowImage(CutSceneID);
+            }
+        }
+        // please don't break ;-;
+        private IEnumerator Start()
+        {
+            // Shut off player movement immediately so they can't run away
             if (playerH != null) playerH.enabled = false;
             if (playerM != null) playerM.enabled = false;
 
-            if (cutsceneManager != null)
+            // Wait for the UI manager to finish loading from the Master Scene
+            while (CutSceneUIManager.Instance == null)
             {
-                cutsceneManager.ShowImage(CutSceneID);
+                yield return null;
             }
-            else
-            {
-                Debug.LogWarning("FAILEEEEEDDDDDDDDDDDDd");
-            }
+
+            // Now trigger the cutscene
+            CutSceneUIManager.Instance.ShowImage(CutSceneID);
         }
     }
 }
