@@ -173,12 +173,27 @@ namespace ProjectL.Global.Script.Inventory
         {
             if (itemToRemove == null) return;
 
-            // Loop through and clear any slots holding this item
+            // Figure out exactly how many slots this one item takes up (Normal = 1, Heavy = 2, etc.)
+            int requiredSlots = (int)itemToRemove.size;
+
+            // Safety check just in case you ever have an item size of 0
+            if (requiredSlots < 1) requiredSlots = 1;
+
+            int slotsCleared = 0;
+
+            // Loop through the hotbar
             for (int i = 0; i < hotbarSlot.Length; i++)
             {
                 if (hotbarSlot[i] == itemToRemove)
                 {
-                    hotbarSlot[i] = null;
+                    hotbarSlot[i] = null; // Delete the item from this slot
+                    slotsCleared++;
+
+                    // THE CRITICAL FIX: Stop the loop once we've deleted exactly ONE item!
+                    if (slotsCleared >= requiredSlots)
+                    {
+                        break;
+                    }
                 }
             }
 

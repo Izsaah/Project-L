@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 643952251684738195}
   - component: {fileID: 8635624084770791216}
   - component: {fileID: 8408861262201146125}
-  - component: {fileID: 6604275969242883547}
   m_Layer: 0
   m_Name: Plane (2)
   m_TagString: Untagged
@@ -158,20 +157,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runtimeDropID: 
   bluePrint: {fileID: 11400000, guid: 7aac6842e84db83429b1cbeafb5a3e3b, type: 2}
---- !u!114 &6604275969242883547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5201095205873571311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6473bc87b4ff50d4cb36016d34b52c67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  possibleLocations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  UIID: plane2
