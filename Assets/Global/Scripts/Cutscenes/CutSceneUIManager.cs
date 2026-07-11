@@ -24,6 +24,10 @@ namespace ProjectL.Global.Script.CutScenes
         private int cSI = 0;
         private void Awake()
         {
+            if (CutSceneUIManager.Instance != null)
+            {
+                CutSceneUIManager.Instance.ShowImage(CutSceneID);
+            }
             hideAllImages();
         }
 

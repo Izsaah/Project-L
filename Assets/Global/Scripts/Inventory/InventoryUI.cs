@@ -1,4 +1,5 @@
 
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,13 +12,26 @@ namespace ProjectL.Global.Script.Inventory
 
         [Header("UI Elements")]
         public Image[] slotIcons;
-
-        private void Start()
+        //let hope this also fix one of the problem lol
+        private IEnumerator Start()
         {
-            playerInventory.OnInventoryChanged += updateUI;
-            updateUI();
-        }
+            GameObject player = null;
 
+            // Wait until the player is actually in the scene
+            while (player == null)
+            {
+                player = GameObject.FindWithTag("Player");
+                yield return null;
+            }
+
+            // Now it is 100% safe to do this
+            playerInventory = player.GetComponent<PlayerInventory>();
+            if (playerInventory != null)
+            {
+                playerInventory.OnInventoryChanged += updateUI;
+                updateUI();
+            }
+        }
         private void updateUI()
         {
             for (int i = 0; i < slotIcons.Length; i++)

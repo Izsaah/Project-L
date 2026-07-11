@@ -52,7 +52,7 @@ namespace ProjectL.Global.Script.Dialogue
             speakerNameText.text = pCC.lines[cLI].NPCName;
             dBT.text = pCC.lines[cLI].dialogueText;
         }
-        private void EndConversation()
+        public void EndConversation()
         {
             dialogueBox.SetActive(false);
             pCC = null;
