@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Debug map/Debug_1.unity
     guid: 802a05acf7104e7469a35f8237c1c44e
   - enabled: 1
+    path: Assets/Scenes/Map/Map_1/Map_1.H8.unity
+    guid: 2b4032999f3e1f645be8325f7b7b8e00
+  - enabled: 1
     path: Assets/Scenes/Debug map/Debug_2.unity
     guid: 947ec905e2475d743b3f5e1d36e3595c
   - enabled: 1
