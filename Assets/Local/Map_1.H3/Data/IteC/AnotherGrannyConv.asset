@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d78e95fc25877449670098b6b46f18, type: 3}
+  m_Name: AnotherGrannyConv
+  m_EditorClassIdentifier: 
+  lines:
+  - NPCName: 
+    dialogueText: "Thu\u1ED1c...."
+  - NPCName: 
+    dialogueText: "N\u01B0\u1EDBc...."
+  - NPCName: 
+    dialogueText: "\u0110\u01B0a b\xE0 \u0111i...."
