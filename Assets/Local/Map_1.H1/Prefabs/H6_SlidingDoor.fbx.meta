@@ -3,7 +3,12 @@ guid: 4e660d932b135664fa81a09d9ff01b5c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sliding_door
+    second: {fileID: 2100000, guid: ed85606dd6f903b48ba42894f32d81e3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
