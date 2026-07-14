@@ -13,5 +13,14 @@ MonoBehaviour:
   m_Name: NPC1_Convo
   m_EditorClassIdentifier: 
   lines:
-  - NPCName: npc1
-    dialogueText: hello
+  - NPCName: "L\xEA Th\u1ECB C\xFAc"
+    dialogueText: "Ch\xE0o anh."
+  - NPCName: "L\xEA Th\u1ECB C\xFAc"
+    dialogueText: "T\xF4i \u0111ang l\u1EA1c m\u1EA5t v\xE0i m\xF3n \u0111\u1ED3
+      qu\xFD gi\xE1 n\xEAn ch\u01B0a th\u1EC3 di t\u1EA3n \u0111\u01B0\u1EE3c."
+  - NPCName: "L\xEA Th\u1ECB C\xFAc"
+    dialogueText: "T\xF4i c\u1EA7n anh gi\xFAp t\xF4i t\xECm s\u1ED5 \u0111\u1ECF,
+      s\u1ED5 h\u1ED3ng, s\u1ED5 ti\u1EBFt ki\u1EC7m."
+  - NPCName: "L\xEA Th\u1ECB C\xFAc"
+    dialogueText: "Sau khi anh \u0111\u01B0a t\xF4i 3 quy\u1EC3n s\u1ED5 th\xEC t\xF4i
+      s\u1EBD di \u0111\u1EBFn nh\xE0 v\u0103n h\xF3a."

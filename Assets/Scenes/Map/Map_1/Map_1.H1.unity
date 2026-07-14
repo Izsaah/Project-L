@@ -446,6 +446,63 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2201954983208153760, guid: 614977c10ce99284f8c9d93ae64bad84, type: 3}
+--- !u!1 &614159709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 614159712}
+  - component: {fileID: 614159711}
+  - component: {fileID: 614159710}
+  m_Layer: 0
+  m_Name: SceneBridge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &614159710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614159709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a8a696426ee524787e86efb5071e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &614159711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614159709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e067cda8bd8bbc45a291b9bc5903a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &614159712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614159709}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 51.828346, y: 1.3967869, z: -93.47877}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &728031868
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +557,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728031868}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -551,7 +608,7 @@ Transform:
   m_GameObject: {fileID: 728031868}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.98, y: 0.8, z: -91.09}
+  m_LocalPosition: {x: 57.921, y: 0.8, z: -91.09}
   m_LocalScale: {x: 1, y: -0.9033893, z: 0.87163}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -591,7 +648,46 @@ MonoBehaviour:
   actionText: give photo to the girl
   onSuccessI:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 614159711}
+        m_TargetAssemblyTypeName: GlobalEventBridge, Assembly-CSharp
+        m_MethodName: PlayCutscene
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 83c7e3275d80a4347b12c4e34954871f, type: 2}
+          m_ObjectArgumentAssemblyTypeName: ProjectL.Global.Script.CutScenes.CutsceneDatabase,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 614159711}
+        m_TargetAssemblyTypeName: GlobalEventBridge, Assembly-CSharp
+        m_MethodName: PlayGlobalSound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: b0e904609b07a4f409f4f5ed23dbc698, type: 2}
+          m_ObjectArgumentAssemblyTypeName: ProjectL.Global.Script.Audio.AudioData,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 614159710}
+        m_TargetAssemblyTypeName: ProjectL.Global.Script.interaction.LocalEndGameTrigger,
+          Assembly-CSharp
+        m_MethodName: TellManagerToUpdate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   destroyTriggerAfter: 1
 --- !u!114 &728031878
 MonoBehaviour:
@@ -904,6 +1000,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2718769185111060704, guid: a5b54bdcaedd5da4f889dd136e5202ae, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8771091787928289351, guid: a5b54bdcaedd5da4f889dd136e5202ae, type: 3}
       propertyPath: m_Name
       value: woman+character+3d+model
@@ -944,7 +1044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAnimator: {fileID: 905234845}
-  myNPCName: lolllllllllllllllllllllllllllllllll
+  myNPCName: "Nguy\u1EC5n Th\u1ECB Loan"
 --- !u!1 &951702196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,7 +1569,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546329748}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -1579,7 +1679,46 @@ MonoBehaviour:
   actionText: give photo to the girl
   onSuccessI:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 614159711}
+        m_TargetAssemblyTypeName: GlobalEventBridge, Assembly-CSharp
+        m_MethodName: PlayCutscene
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 835a3f22924c6674a820378bc09b01af, type: 2}
+          m_ObjectArgumentAssemblyTypeName: ProjectL.Global.Script.CutScenes.CutsceneDatabase,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 614159711}
+        m_TargetAssemblyTypeName: GlobalEventBridge, Assembly-CSharp
+        m_MethodName: PlayGlobalSound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: b0e904609b07a4f409f4f5ed23dbc698, type: 2}
+          m_ObjectArgumentAssemblyTypeName: ProjectL.Global.Script.Audio.AudioData,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 614159710}
+        m_TargetAssemblyTypeName: ProjectL.Global.Script.interaction.LocalEndGameTrigger,
+          Assembly-CSharp
+        m_MethodName: TellManagerToUpdate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   destroyTriggerAfter: 1
 --- !u!114 &1546329758
 MonoBehaviour:
@@ -1689,6 +1828,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1736658187856089064, guid: a8964f060ed0b73488b506a41ac30d45, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8771091787928289351, guid: a8964f060ed0b73488b506a41ac30d45, type: 3}
       propertyPath: m_Name
       value: urban+saigon+woman+3d+model
@@ -1729,7 +1872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAnimator: {fileID: 1554727358}
-  myNPCName: npc1
+  myNPCName: "L\xEA Th\u1ECB C\xFAc"
 --- !u!1 &1573415878
 GameObject:
   m_ObjectHideFlags: 0
@@ -2923,3 +3066,4 @@ SceneRoots:
   - {fileID: 1588436197}
   - {fileID: 1676765393}
   - {fileID: 1227537690}
+  - {fileID: 614159712}
