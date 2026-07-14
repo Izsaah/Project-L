@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FAMILYPICTURE
   m_EditorClassIdentifier: 
   iN: FamilyPicture
-  i: {fileID: 21300000, guid: 594bed5de484ad24e9631c87ef64c0d4, type: 3}
+  i: {fileID: 21300000, guid: 9f104b8606d10c74b8f18a85e4542789, type: 3}
   size: 1
-  fab: {fileID: 7839611800503767692, guid: af0d600c3e31db248ba32cc952afb4ca, type: 3}
-  rotOS: {x: 0, y: 0, z: 0}
+  fab: {fileID: 3018770876864551602, guid: 9b290fdd83042044d8e7cafaafa1b3d3, type: 3}
+  rotOS: {x: 90, y: 0, z: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Blablablabla
   m_EditorClassIdentifier: 
   iN: blablablabla
-  i: {fileID: 21300000, guid: e1921a3e1d98373428ad3774580ccdfa, type: 3}
+  i: {fileID: 21300000, guid: 550a35e7bffe515498a0354184933381, type: 3}
   size: 1
   fab: {fileID: 5201095205873571311, guid: bfc92f9d4ad4b9848b3f71c6275adf72, type: 3}
-  rotOS: {x: 0, y: 0, z: 0}
+  rotOS: {x: 90, y: 0, z: 0}
