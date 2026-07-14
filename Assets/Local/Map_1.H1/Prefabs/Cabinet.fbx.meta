@@ -3,7 +3,22 @@ guid: b9b5545e47bf02646895c2f1d3f36d3e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CabinetLower_low
+    second: {fileID: 2100000, guid: 30bc631577d8f084b990ea2d98089dff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CabinetUpper_low
+    second: {fileID: 2100000, guid: 02157993ac1103344ae84484c43c240a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Frame_low
+    second: {fileID: 2100000, guid: 05db12dac2b513545ac8f4bad362d32f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
