@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+
 namespace ProjectL.Global.Script.CutScenes
 {
-
     public class CutSceneUIManager : MonoBehaviour
     {
-        [Header("GET MAH DBBBBBBBBBBBBBBBB IN HERRRRRRRRRRE YOU STUPIF DCK")]
-        public CutsceneDatabase db;
         [Header("WOOOOOOOO WHAT DO YOU SEE YOUR MOM HAHAHAAH")]
         [Tooltip("the ONE single Image componet in your ASSHAHAAHAHAHAHA")]
         public Image dbImage;
@@ -19,27 +17,30 @@ namespace ProjectL.Global.Script.CutScenes
         [Header("ReplayEvents")]
         [Tooltip("Put what to do when finish")]
         public UnityEvent Finish;
-        //this should fix it 
+        
         public static CutSceneUIManager Instance;
         private Sprite[] cSequence;
         private int cSI = 0;
+
         private void Awake()
         {
+            // CRITICAL BUG FIX INCLUDED HERE!
+            Instance = this;
             hideAllImages();
         }
 
-        public void ShowImage(string id)
+        // It now requires a File instead of a string!
+        public void ShowImage(CutsceneDatabase data)
         {
-            if (db == null || dbImage == null) return;
-
-            cSequence = db.getImage(id);
-
-            if (cSequence == null || cSequence.Length == 0)
+            if (data == null || data.images == null || data.images.Length == 0)
             {
-                Debug.LogWarning($"CutSceneUIManager: image key not found: {id}");
+                Debug.LogWarning("CutSceneUIManager: No images found in this Cutscene file!");
                 return;
             }
+
+            cSequence = data.images;
             cSI = 0;
+            
             dbImage.sprite = cSequence[cSI];
             dbImage.gameObject.SetActive(true);
 
@@ -51,6 +52,7 @@ namespace ProjectL.Global.Script.CutScenes
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
         public void NextSlide()
         {
             cSI++;
@@ -63,6 +65,7 @@ namespace ProjectL.Global.Script.CutScenes
                 hideAllImages();
             }
         }
+
         public void hideAllImages()
         {
             if (dbImage != null)
@@ -81,4 +84,3 @@ namespace ProjectL.Global.Script.CutScenes
         }
     }
 }
-

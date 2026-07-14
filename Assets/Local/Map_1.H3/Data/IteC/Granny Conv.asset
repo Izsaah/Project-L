@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - NPCName: Granny
-    dialogueText: I'm hungry...
+    dialogueText: "Ta \u0111\xF3i....."
   - NPCName: Granny
-    dialogueText: Can you help feed me with the food i left on the table over there!
+    dialogueText: "Ta \u0111\xF3i "
