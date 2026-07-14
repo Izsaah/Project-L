@@ -2768,8 +2768,48 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TestWood
       objectReference: {fileID: 0}
+    - target: {fileID: -7918335002988649766, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7581030986751952558, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6596056810010970148, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6181784227398449844, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5835364394275851739, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5432851097806273775, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5187698932786610199, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3987005250183282384, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3026358018753707436, guid: b427cd93f6628f94db961682636dab97, type: 3}
       propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445655625401897242, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 623655948388898632, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b427cd93f6628f94db961682636dab97, type: 3}
@@ -2780,6 +2820,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TestWood
       objectReference: {fileID: 0}
+    - target: {fileID: 1158958420023925661, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816527270779423219, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921118743829944852, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051583980802144692, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2170244763605361671, guid: b427cd93f6628f94db961682636dab97, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -2788,9 +2844,53 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TestWood
       objectReference: {fileID: 0}
+    - target: {fileID: 2457100987984723534, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102170268923503037, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021251440088581742, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096409389417264491, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4425000226662756435, guid: b427cd93f6628f94db961682636dab97, type: 3}
       propertyPath: m_TagString
       value: TestWood
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327830722624369033, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447331667604542231, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6719346542416888425, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718478517500894762, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934462390183077092, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123192463346139465, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209041531377807284, guid: b427cd93f6628f94db961682636dab97, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
