@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - NPCName: Granny
-    dialogueText: Thank you man!
+    dialogueText: "C\u1EA3m \u01A1n ch\xE1u !"

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Granny
   m_EditorClassIdentifier: 
   iN: Granny
-  i: {fileID: 0}
+  i: {fileID: 21300000, guid: 5bae1da7f99c3f648964c0438e06c1bb, type: 3}
   size: 3
-  fab: {fileID: 0}
-  rotOS: {x: 0, y: 0, z: 0}
+  fab: {fileID: 7807890527766852129, guid: 0cf3d1d57ba00274b94c4909e9279b80, type: 3}
+  rotOS: {x: 0, y: 90, z: 0}
