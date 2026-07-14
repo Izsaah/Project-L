@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415eba624efcd79499df3dcf052d1804, type: 3}
+  m_Name: NightTime
+  m_EditorClassIdentifier: 
+  images:
+  - {fileID: 21300000, guid: afc3ce2037b8c5244b6978ebe9a78096, type: 3}
+  - {fileID: 21300000, guid: 9164abf745f9b23498b9026929471182, type: 3}
+  - {fileID: 21300000, guid: dda5382501449ac41a7a43fdb38b8aa7, type: 3}
+  sounds:
+  - {fileID: 11400000, guid: 0d885a48f607d96429ae5cf65ba10fc2, type: 2}
+  - {fileID: 11400000, guid: e88d322898ceef847aecceba72df0c8e, type: 2}
+  - {fileID: 11400000, guid: 4fe8681e97028034895e2f99414ec011, type: 2}

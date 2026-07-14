@@ -16,6 +16,7 @@ namespace ProjectL.Global.Script.interaction
         public int timeCostInMinutes = 30;
 
         [Header("YOOO WHAT IN YO TOOL BOX DUMBASS!!!!")]
+        [Tooltip("Leave this empty if you just want a normal hold interaction with no items required!")]
         public List<ItemData> requiredTool = new List<ItemData>();
         public String actionText = "";
 
@@ -84,21 +85,27 @@ namespace ProjectL.Global.Script.interaction
 
         private void Update()
         {
-            if (!playerInRange || alreadyTrigger || playerInput == null || playerInventory == null) return;
+            if (!playerInRange || alreadyTrigger || playerInput == null) return;
 
-            if (requiredTool.Count <= 0)
+            bool isHoldingCorrectItem = true; // Assume true if no items are required
+
+            // If we DO require items, check if the player is holding the correct one!
+            if (requiredTool.Count > 0)
             {
-                CompleteInteraction();
-                return;
+                if (playerInventory == null) return;
+                int activeSlot = playerInventory.activeSlotIndex;
+
+                if (activeSlot < 0 || activeSlot >= playerInventory.hotbarSlot.Length) return;
+
+                ItemData currentHeldItem = playerInventory.hotbarSlot[activeSlot];
+                if (currentHeldItem == null || !requiredTool.Contains(currentHeldItem))
+                {
+                    isHoldingCorrectItem = false;
+                }
             }
 
-            int activeSlot = playerInventory.activeSlotIndex;
-            if (activeSlot < 0 || activeSlot >= playerInventory.hotbarSlot.Length) return;
-
-            ItemData currentHeldItem = playerInventory.hotbarSlot[activeSlot];
-
-            // If we are holding the right item and pressing E
-            if (currentHeldItem != null && requiredTool.Contains(currentHeldItem) && playerInput.GetInteractHeld())
+            // If they are holding the right item (or no item is required) AND they press 'E'
+            if (isHoldingCorrectItem && playerInput.GetInteractHeld())
             {
                 cHtime += Time.deltaTime;
                 if (progressBar != null) progressBar.SetActive(true);
@@ -106,21 +113,27 @@ namespace ProjectL.Global.Script.interaction
 
                 if (cHtime >= holdDuration)
                 {
-                    // Item Delivered!
-                    requiredTool.Remove(currentHeldItem);
-                    playerInventory.RemoveItem(currentHeldItem);
-                    ResetHold();
-
+                    // Only remove the item if they actually needed an item
                     if (requiredTool.Count > 0)
                     {
-                        Debug.Log($"Accepted {currentHeldItem.iN}. Still need {requiredTool.Count} more.");
-                        ShowMonologue("partial_success");
-                        if (TryGetComponent<StateMem>(out StateMem mem)) mem.SP(requiredTool.Count);
+                        ItemData currentHeldItem = playerInventory.hotbarSlot[playerInventory.activeSlotIndex];
+                        requiredTool.Remove(currentHeldItem);
+                        playerInventory.RemoveItem(currentHeldItem);
+
+                        ResetHold();
+
+                        // If they still need MORE items, stop here!
+                        if (requiredTool.Count > 0)
+                        {
+                            Debug.Log($"Accepted {currentHeldItem.iN}. Still need {requiredTool.Count} more.");
+                            ShowMonologue("partial_success");
+                            if (TryGetComponent<StateMem>(out StateMem mem)) mem.SP(requiredTool.Count);
+                            return;
+                        }
                     }
-                    else
-                    {
-                        CompleteInteraction();
-                    }
+
+                    // Done!
+                    CompleteInteraction();
                 }
             }
             else if (cHtime > 0)
@@ -133,7 +146,7 @@ namespace ProjectL.Global.Script.interaction
         {
             alreadyTrigger = true;
             ResetHold();
-            Debug.Log("Success! All required items delivered!");
+            Debug.Log("Success! Interaction complete!");
 
             if (GameManager.Instance != null && GameManager.Instance.timeManager != null)
             {
