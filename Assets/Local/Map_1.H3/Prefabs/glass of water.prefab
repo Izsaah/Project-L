@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8997715705880751315
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4320558180572046448, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      propertyPath: m_Name
+      value: glass of water
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851522807220058065, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 53.412003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851522807220058065, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.809
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851522807220058065, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -56.448
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851522807220058065, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851522807220058065, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851522807220058065, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851522807220058065, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851522807220058065, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851522807220058065, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851522807220058065, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2210379779436812705, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -4320558180572046448, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1899027437006271844}
+    - targetCorrespondingSourceObject: {fileID: -4320558180572046448, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8037711315625798866}
+    - targetCorrespondingSourceObject: {fileID: -4320558180572046448, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5804363415311905573}
+  m_SourcePrefab: {fileID: 3150474306388093854, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+--- !u!1 &4094904536402097987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4320558180572046448, guid: 4e5f8b716a9b2e44aa3f138f33bea4ad, type: 3}
+  m_PrefabInstance: {fileID: 8997715705880751315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1899027437006271844
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094904536402097987}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.6
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8037711315625798866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094904536402097987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce309538c8bbf874cad9ac871f4eff23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runtimeDropID: 
+  bluePrint: {fileID: 0}
+--- !u!114 &5804363415311905573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094904536402097987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ab98f20e7b5494397ce9ddb516be7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: glass_water_01
