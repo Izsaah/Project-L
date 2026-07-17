@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Granny EConv 2
   m_EditorClassIdentifier: 
   lines:
-  - NPCName: Granny
+  - NPCName: "M\xE1 C\xFAc v\xE0 Lan"
     dialogueText: "C\u1EA3m \u01A1n ch\xE1u \u0111\xE3 gi\xFAp b\xE0."
