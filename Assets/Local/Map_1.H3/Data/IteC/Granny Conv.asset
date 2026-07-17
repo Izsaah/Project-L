@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Granny Conv
   m_EditorClassIdentifier: 
   lines:
-  - NPCName: Granny
+  - NPCName: "M\xE1 C\xFAc v\xE0 Lan"
     dialogueText: "Ta \u0111\xF3i....."
-  - NPCName: Granny
+  - NPCName: "M\xE1 C\xFAc v\xE0 Lan"
     dialogueText: "Ta \u0111\xF3i "

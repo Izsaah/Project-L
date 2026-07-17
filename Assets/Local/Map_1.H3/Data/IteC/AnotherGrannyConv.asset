@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AnotherGrannyConv
   m_EditorClassIdentifier: 
   lines:
-  - NPCName: 
+  - NPCName: "M\xE1 C\xFAc v\xE0 Lan"
     dialogueText: "Thu\u1ED1c...."
-  - NPCName: 
+  - NPCName: "M\xE1 C\xFAc v\xE0 Lan"
     dialogueText: "N\u01B0\u1EDBc...."
-  - NPCName: 
+  - NPCName: "M\xE1 C\xFAc v\xE0 Lan"
     dialogueText: "\u0110\u01B0a b\xE0 \u0111i...."
