@@ -252,6 +252,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 4081099524627773276, guid: 67bec92200bf3614f95a099e5cd8ccf5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 7056446452687586041, guid: 5899ff9871bdf804baff632934e65cf8, type: 3}
     - target: {fileID: 4327375932653248180, guid: 67bec92200bf3614f95a099e5cd8ccf5, type: 3}
       propertyPath: m_LocalScale.y
       value: 100
@@ -296,6 +300,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4663099180051311587, guid: 67bec92200bf3614f95a099e5cd8ccf5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6377136157372705309, guid: 2f88721dcd4a0da419582d8629ff3c48, type: 3}
     - target: {fileID: 8701302922947223391, guid: 67bec92200bf3614f95a099e5cd8ccf5, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
