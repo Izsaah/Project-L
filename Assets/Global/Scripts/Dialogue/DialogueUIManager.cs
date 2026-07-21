@@ -14,6 +14,9 @@ namespace ProjectL.Global.Script.Dialogue
         public GameObject dialogueBox;
         public TextMeshProUGUI speakerNameText;
         public TextMeshProUGUI dBT;
+        
+        [Header("Audio Setup")]
+        public AudioSource dialogueAudioSource;
 
         private ConversationData pCC;
         private int cLI = 0;
@@ -49,8 +52,23 @@ namespace ProjectL.Global.Script.Dialogue
         }
         private void DisplayLine()
         {
-            speakerNameText.text = pCC.lines[cLI].NPCName;
-            dBT.text = pCC.lines[cLI].dialogueText;
+            var line = pCC.lines[cLI];
+            speakerNameText.text = line.NPCName;
+            dBT.text = line.dialogueText;
+
+            if (dialogueAudioSource != null)
+            {
+                if (dialogueAudioSource.isPlaying)
+                {
+                    dialogueAudioSource.Stop();
+                }
+
+                if (line.audioClip != null)
+                {
+                    dialogueAudioSource.clip = line.audioClip;
+                    dialogueAudioSource.Play();
+                }
+            }
         }
         public void EndConversation()
         {

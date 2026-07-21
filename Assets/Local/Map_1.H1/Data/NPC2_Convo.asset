@@ -15,16 +15,17 @@ MonoBehaviour:
   lines:
   - NPCName: "Nguy\u1EC5n Th\u1ECB Loan"
     dialogueText: "Xin ch\xE0o anh."
+    audioClip: {fileID: 8300000, guid: 46c8e225ac941e8408234d18486d8fc4, type: 3}
   - NPCName: "Nguy\u1EC5n Th\u1ECB Loan"
     dialogueText: "T\xF4i \u0111ang c\u1EA7n t\xECm m\u1ED9t b\u1EE9c \u1EA3nh gia
       \u0111\xECnh ch\u1EE9a k\u1EC9 ni\u1EC7m gia \u0111\xECnh t\xF4i n\xEAn ch\u01B0a
       th\u1EC3 \u0111i di t\u1EA3n."
+    audioClip: {fileID: 8300000, guid: c57c58169ec0d3e4b920e4a3fe6525da, type: 3}
   - NPCName: "Nguy\u1EC5n Th\u1ECB Loan"
     dialogueText: "L\xE0m \u01A1n h\xE3y gi\xFAp t\xF4i t\xECm b\u1EE9c \u1EA3nh
       gia \u0111\xECnh c\u1EE7a t\xF4i kh\xF4ng ?"
-  - NPCName: "Nguy\u1EC5n Th\u1ECB Loan"
-    dialogueText: "T\xF4i s\u1EBD \u0111\u01B0a anh 1 c\xE1i \u0111\xE8n pin \u0111\u1EC3
-      gi\xFAp anh t\xECm ki\u1EBFm d\u1EC5 h\u01A1n."
+    audioClip: {fileID: 8300000, guid: 3e0838e189df99b44b5d6c53d56c9b3b, type: 3}
   - NPCName: "Nguy\u1EC5n Th\u1ECB Loan"
     dialogueText: "Sau khi anh \u0111\u01B0a t\xF4i b\u1EE9c \u1EA3nh, t\xF4i s\u1EBD
       l\u1EADp t\u1EE9c \u0111i \u0111\u1EBFn nh\xE0 v\u0103n h\xF3a."
+    audioClip: {fileID: 8300000, guid: becbbae254f093540a671a4e8b37c3ab, type: 3}

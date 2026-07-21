@@ -15,3 +15,4 @@ MonoBehaviour:
   lines:
   - NPCName: "M\xE1 C\xFAc v\xE0 Lan"
     dialogueText: "C\u1EA3m \u01A1n ch\xE1u \u0111\xE3 gi\xFAp b\xE0."
+    audioClip: {fileID: 8300000, guid: 603e59020770d604d8b4ec1bdaa25b16, type: 3}
