@@ -33,6 +33,8 @@ namespace ProjectL.Global.Script.interaction
 
         [Tooltip("yo keep me or nah lol")]
         public bool destroyTriggerAfter = true;
+        [Header("Penalty for being a dummy")]
+        public int penaltyTimeInMinutes = 5;
 
         private bool playerInRange = false;
         private bool alreadyTrigger = false;
@@ -67,7 +69,7 @@ namespace ProjectL.Global.Script.interaction
                 playerInRange = true;
                 playerInput = other.GetComponent<IInputProvider>();
                 playerInventory = other.GetComponent<PlayerInventory>();
-                Debug.Log($"Hold 'E' to {actionText} (requires {requiredTool.Count} items)");
+
             }
         }
 
@@ -101,6 +103,7 @@ namespace ProjectL.Global.Script.interaction
                 if (currentHeldItem == null || !requiredTool.Contains(currentHeldItem))
                 {
                     isHoldingCorrectItem = false;
+
                 }
             }
 
@@ -125,8 +128,8 @@ namespace ProjectL.Global.Script.interaction
                         // If they still need MORE items, stop here!
                         if (requiredTool.Count > 0)
                         {
-                            Debug.Log($"Accepted {currentHeldItem.iN}. Still need {requiredTool.Count} more.");
-                            ShowMonologue("partial_success");
+
+
                             if (TryGetComponent<StateMem>(out StateMem mem)) mem.SP(requiredTool.Count);
                             return;
                         }
@@ -138,7 +141,9 @@ namespace ProjectL.Global.Script.interaction
             }
             else if (cHtime > 0)
             {
+
                 ResetHold(); // Player let go early or switched items
+
             }
         }
 
@@ -146,7 +151,7 @@ namespace ProjectL.Global.Script.interaction
         {
             alreadyTrigger = true;
             ResetHold();
-            Debug.Log("Success! Interaction complete!");
+
 
             if (GameManager.Instance != null && GameManager.Instance.timeManager != null)
             {

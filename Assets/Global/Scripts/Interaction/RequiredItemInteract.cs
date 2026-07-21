@@ -30,6 +30,8 @@ namespace ProjectL.Global.Script.interaction
         private IInputProvider playerInput;
         private PlayerInventory playerInventory;
         private List<ItemData> originalRequirements = new List<ItemData>();
+        [Header("Penalty for being a dummy")]
+        public int penaltyTimeInMinutes = 5;
 
         private void Awake()
         {
@@ -56,7 +58,7 @@ namespace ProjectL.Global.Script.interaction
                 playerInRange = true;
                 playerInput = other.GetComponent<IInputProvider>();
                 playerInventory = other.GetComponent<PlayerInventory>();
-                Debug.Log($"Press 'E' to {actionText} (requires {requiredTool.Count} items)");
+
             }
         }
 
@@ -86,7 +88,7 @@ namespace ProjectL.Global.Script.interaction
             int activeSlot = playerInventory.activeSlotIndex;
             if (activeSlot < 0 || activeSlot >= playerInventory.hotbarSlot.Length)
             {
-                ShowMonologue("missing_tool");
+                GameManager.Instance.timeManager.UpdateTime(penaltyTimeInMinutes);
                 return;
             }
 
@@ -94,7 +96,7 @@ namespace ProjectL.Global.Script.interaction
 
             if (currentHeldItem == null || !requiredTool.Contains(currentHeldItem))
             {
-                ShowMonologue("missing_tool");
+                GameManager.Instance.timeManager.UpdateTime(penaltyTimeInMinutes);
                 return;
             }
 
@@ -104,8 +106,7 @@ namespace ProjectL.Global.Script.interaction
 
             if (requiredTool.Count > 0)
             {
-                Debug.Log($"Accepted {currentHeldItem.iN}. Still need {requiredTool.Count} more.");
-                ShowMonologue("partial_success");
+
                 if (TryGetComponent<StateMem>(out StateMem mem)) mem.SP(requiredTool.Count);
             }
             else
@@ -117,7 +118,7 @@ namespace ProjectL.Global.Script.interaction
         private void CompleteInteraction()
         {
             alreadyTrigger = true;
-            Debug.Log("Success! All required items delivered!");
+
 
             if (GameManager.Instance != null && GameManager.Instance.timeManager != null)
             {
