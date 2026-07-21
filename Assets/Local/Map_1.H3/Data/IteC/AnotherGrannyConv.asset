@@ -15,7 +15,10 @@ MonoBehaviour:
   lines:
   - NPCName: "M\xE1 C\xFAc v\xE0 Lan"
     dialogueText: "Thu\u1ED1c...."
+    audioClip: {fileID: 8300000, guid: ab47567237d8b9f4eb3d229ec11824b0, type: 3}
   - NPCName: "M\xE1 C\xFAc v\xE0 Lan"
     dialogueText: "N\u01B0\u1EDBc...."
+    audioClip: {fileID: 8300000, guid: b9d97f25b1f6537458112f36436dcd8c, type: 3}
   - NPCName: "M\xE1 C\xFAc v\xE0 Lan"
     dialogueText: "\u0110\u01B0a b\xE0 \u0111i...."
+    audioClip: {fileID: 8300000, guid: 7d689a82111659d4ebdfeae7c3bd54dd, type: 3}

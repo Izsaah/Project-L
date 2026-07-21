@@ -14,7 +14,9 @@ namespace ProjectL.Global.Script.Dialogue
             public string NPCName;
             [TextArea(1, 5)]
             public string dialogueText;
-
+            
+            [Header("Audio Settings")]
+            public AudioClip audioClip;
         }
         [Header("THE SEQUENCEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")]
         public List<DialogueLine> lines = new List<DialogueLine>();
