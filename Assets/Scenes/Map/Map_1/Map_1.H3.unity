@@ -244,7 +244,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8416404599023765069, guid: 3bf8a37db8876ae41a80d999f5d1d3b2, type: 3}
   m_PrefabInstance: {fileID: 463120712056534852}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 463120712056534853}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce309538c8bbf874cad9ac871f4eff23, type: 3}
@@ -613,6 +613,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   destroyTriggerAfter: 1
+  penaltyTimeInMinutes: 5
 --- !u!135 &1778081864
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -698,7 +699,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 463120712056534854}
+        m_TargetAssemblyTypeName: ProjectL.Global.Scripts.Objectives.LocalObjectiveTrigger,
+          Assembly-CSharp
+        m_MethodName: SetNewObjective
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "H\xE3y \u0111\u01B0a b\xE0 l\xE3o l\xEAn \u0111\u1EC9nh
+            omlympia"
+          m_BoolArgument: 1
+        m_CallState: 2
   destroyTriggerAfter: 1
+  penaltyTimeInMinutes: 5
 --- !u!135 &1899865526
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1051,8 +1067,28 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5766205719582804894, guid: 3bf8a37db8876ae41a80d999f5d1d3b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5289083616525083919}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6103910213158077472, guid: 3bf8a37db8876ae41a80d999f5d1d3b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 463120712056534854}
   m_SourcePrefab: {fileID: 100100000, guid: 3bf8a37db8876ae41a80d999f5d1d3b2, type: 3}
+--- !u!1 &463120712056534853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6103910213158077472, guid: 3bf8a37db8876ae41a80d999f5d1d3b2, type: 3}
+  m_PrefabInstance: {fileID: 463120712056534852}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &463120712056534854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463120712056534853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a20db530bfda5545b50af1ef4e75cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &553055124174384603 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6320747635977811388, guid: ac93e37afb3df4f4e8996158e061efb4, type: 3}
