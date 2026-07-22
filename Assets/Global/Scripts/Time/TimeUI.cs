@@ -38,7 +38,6 @@ namespace ProjectL.Global.Script.Times
             int hours24 = totalMinutes / 60;
             int minutes = totalMinutes % 60;
 
-            string amPm = hours24 >= 12 ? "PM" : "AM";
 
             int hours12 = hours24 % 12;
             if (hours12 == 0)
@@ -46,7 +45,7 @@ namespace ProjectL.Global.Script.Times
                 hours12 = 12;
             }
 
-            clockText.text = $"{hours12:00}:{minutes:00} {amPm}";
+            clockText.text = $"{hours12:00}:{minutes:00} ";
         }
 
         private void OnDestroy()

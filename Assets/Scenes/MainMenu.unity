@@ -1017,6 +1017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4449bb7547c5cd4d82256851bdeb579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneName: Map_1
 --- !u!4 &960342299
 Transform:
   m_ObjectHideFlags: 0
@@ -1089,10 +1090,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Against The Surge
+  m_text: "Ch\u1ED1ng L\u0169"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a18bc80a1a2bf934193a9100187d4c4b, type: 2}
+  m_sharedMaterial: {fileID: -1072100749843715580, guid: a18bc80a1a2bf934193a9100187d4c4b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
