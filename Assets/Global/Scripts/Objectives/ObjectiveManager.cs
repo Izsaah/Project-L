@@ -9,6 +9,8 @@ namespace ProjectL.Global.Scripts.Objectives
         public TextMeshProUGUI objectiveText;
 
         public static ObjectiveManager Instance;
+        
+        private bool isHiddenByCutscene = false;
 
         void Awake()
         {
@@ -31,12 +33,29 @@ namespace ProjectL.Global.Scripts.Objectives
         {
             if (objectiveText != null)
             {
+                // Only turn the text on if a cutscene isn't actively playing
+                if (!isHiddenByCutscene)
+                {
+                    objectiveText.gameObject.SetActive(true);
+                }
                 objectiveText.text = newObjective;
             }
             else
             {
                 Debug.LogWarning("Objective Manager: Text is not assigned in the inspector!", this);
             }
+        }
+
+        public void HideObjective()
+        {
+            isHiddenByCutscene = true;
+            if (objectiveText != null) objectiveText.gameObject.SetActive(false);
+        }
+
+        public void ShowObjective()
+        {
+            isHiddenByCutscene = false;
+            if (objectiveText != null) objectiveText.gameObject.SetActive(true);
         }
     }
 }
