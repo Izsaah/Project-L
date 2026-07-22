@@ -13,7 +13,6 @@ namespace ProjectL.Global.Core.GameMaster
         [Header("Cutscene Files")]
         public CutsceneDatabase timeOutCutscene;
         public CutsceneDatabase successCutscene;
- int currentCompleted = GameManager.Instance.worldState.destroyedObjects.Count;
 
         // Safety flag so we don't trigger a win and a lose at the exact same time
         private bool isGameEnded = false;
@@ -61,7 +60,7 @@ namespace ProjectL.Global.Core.GameMaster
             if (isGameEnded) return;
 
             // Check how many interactions have been saved to the WorldStateManager
-           
+            int currentCompleted = GameManager.Instance.worldState.destroyedObjects.Count;
 
             if (currentCompleted >= targetNPCCount)
             {
