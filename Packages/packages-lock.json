@@ -7,6 +7,16 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.coplaydev.coplay": {
+      "version": "https://github.com/CoplayDev/coplay-unity-plugin.git#beta",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.inputsystem": "1.1.1",
+        "com.unity.cloud.gltfast": "6.12.1"
+      },
+      "hash": "620446adff3fa0b064fdea90ee35100370006146"
+    },
     "com.unity.2d.animation": {
       "version": "9.2.0",
       "depth": 1,
