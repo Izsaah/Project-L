@@ -23,6 +23,36 @@ namespace ProjectL.Global.Script.Player
         [Header("Key Bind")]
         [SerializeField] private KeyBinding[] bind;
 
+        private void Awake()
+        {
+            ReloadKeyBindings();
+        }
+
+        public void ReloadKeyBindings()
+        {
+            // Load custom keys from PlayerPrefs
+            for (int i = 0; i < bind.Length; i++)
+            {
+                string prefKey = "KeyBind_" + bind[i].action.ToString();
+                
+                // If the player has a saved key for this action, load it
+                if (PlayerPrefs.HasKey(prefKey))
+                {
+                    string savedKey = PlayerPrefs.GetString(prefKey);
+                    if (System.Enum.TryParse(savedKey, out KeyCode parsedKey))
+                    {
+                        bind[i].key = parsedKey;
+                    }
+                }
+                else
+                {
+                    // Otherwise, save the default key so the Main Menu can read it!
+                    PlayerPrefs.SetString(prefKey, bind[i].key.ToString());
+                }
+            }
+            PlayerPrefs.Save();
+        }
+
         private KeyCode MappedKey(InputAction action)
         {
             foreach (KeyBinding binding in bind)

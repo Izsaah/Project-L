@@ -45,6 +45,18 @@ namespace ProjectL.Local.Map_1
 
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+
+            // Show objective text again when unpaused
+            if (ProjectL.Global.Scripts.Objectives.ObjectiveManager.Instance != null)
+            {
+                ProjectL.Global.Scripts.Objectives.ObjectiveManager.Instance.ShowObjective();
+            }
+
+            // Show waypoint marker again when unpaused
+            if (ProjectL.Global.Scripts.Objectives.WaypointMarker.Instance != null)
+            {
+                ProjectL.Global.Scripts.Objectives.WaypointMarker.Instance.ShowMarker();
+            }
         }
         void Pause()
         {
@@ -54,6 +66,18 @@ namespace ProjectL.Local.Map_1
 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+
+            // Hide objective text while paused
+            if (ProjectL.Global.Scripts.Objectives.ObjectiveManager.Instance != null)
+            {
+                ProjectL.Global.Scripts.Objectives.ObjectiveManager.Instance.HideObjective();
+            }
+
+            // Hide waypoint marker while paused
+            if (ProjectL.Global.Scripts.Objectives.WaypointMarker.Instance != null)
+            {
+                ProjectL.Global.Scripts.Objectives.WaypointMarker.Instance.HideMarker();
+            }
         }
         public void LoadMenu()
         {
