@@ -113,6 +113,27 @@ namespace ProjectL.Local.Map_1
                 Debug.LogWarning("SaveLoadManager is missing! Cannot load game.");
             }
         }
+
+        // Hook this to your Volume Slider in the Pause Menu!
+        public void SetVolume(float volume)
+        {
+            AudioListener.volume = volume;
+            PlayerPrefs.SetFloat("GlobalVolume", volume);
+            PlayerPrefs.Save();
+        }
+
+        // Hook this to your Sensitivity Slider in the Pause Menu!
+        public void SetSensitivity(float sens)
+        {
+            PlayerPrefs.SetFloat("MouseSensitivity", sens);
+            PlayerPrefs.Save();
+            
+            var cam = FindAnyObjectByType<ProjectL.Global.Script.Camera.FirstPersonCamera>();
+            if (cam != null)
+            {
+                cam.mouseSens = sens;
+            }
+        }
     }
 
 }
