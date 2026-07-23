@@ -11,6 +11,9 @@ namespace ProjectL.Global.Scripts.UI
         [Tooltip("Drag your Volume Slider here")]
         public Slider volumeSlider;
 
+        [Tooltip("Drag your Mouse Sensitivity Slider here")]
+        public Slider sensitivitySlider;
+
         [Tooltip("Drag any buttons you want to completely disappear (like Play, Quit) into this list")]
         public GameObject[] objectsToHide;
 
@@ -28,11 +31,16 @@ namespace ProjectL.Global.Scripts.UI
             // Apply the volume to the game
             ApplyVolume(savedVolume);
 
-            // Make sure the panel is hidden when the main menu first loads
-            CloseSettings();
+            // Load saved mouse sensitivity (default is 2)
+            float savedSens = PlayerPrefs.GetFloat("MouseSensitivity", 2f);
+            if (sensitivitySlider != null)
+            {
+                sensitivitySlider.value = savedSens;
+            }
+            ApplySensitivity(savedSens);
         }
 
-        // Call this from the "On Value Changed" event on your Slider
+        // Call this from the "On Value Changed" event on your Volume Slider
         public void SetVolume(float volume)
         {
             ApplyVolume(volume);
@@ -46,6 +54,25 @@ namespace ProjectL.Global.Scripts.UI
         {
             // AudioListener is a built-in Unity feature that controls the master volume of everything!
             AudioListener.volume = volume;
+        }
+
+        // Call this from the "On Value Changed" event on your Sensitivity Slider
+        public void SetSensitivity(float sens)
+        {
+            ApplySensitivity(sens);
+            
+            PlayerPrefs.SetFloat("MouseSensitivity", sens);
+            PlayerPrefs.Save();
+        }
+
+        private void ApplySensitivity(float sens)
+        {
+            // Try to find the camera in the current scene to apply it instantly
+            var cam = FindAnyObjectByType<ProjectL.Global.Script.Camera.FirstPersonCamera>();
+            if (cam != null)
+            {
+                cam.mouseSens = sens;
+            }
         }
 
         // Call this from your "Cài đặt" Button's OnClick event

@@ -20,6 +20,7 @@ namespace ProjectL.Global.Scripts.Objectives
         public float hideDistance = 3f;
 
         private Transform currentTarget;
+        private bool isHiddenByMenu = false;
 
         void Awake()
         {
@@ -41,7 +42,7 @@ namespace ProjectL.Global.Scripts.Objectives
 
         void Update()
         {
-            if (currentTarget == null || waypointIcon == null || Camera.main == null)
+            if (currentTarget == null || waypointIcon == null || Camera.main == null || isHiddenByMenu)
             {
                 if (waypointIcon != null) waypointIcon.enabled = false;
                 return;
@@ -79,10 +80,21 @@ namespace ProjectL.Global.Scripts.Objectives
         {
             currentTarget = newTarget;
             
-            if (newTarget != null && waypointIcon != null)
+            if (newTarget != null && waypointIcon != null && !isHiddenByMenu)
             {
                 waypointIcon.enabled = true;
             }
+        }
+
+        public void HideMarker()
+        {
+            isHiddenByMenu = true;
+            if (waypointIcon != null) waypointIcon.enabled = false;
+        }
+
+        public void ShowMarker()
+        {
+            isHiddenByMenu = false;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace ProjectL.Global.Script.Player
 {
     public enum InputAction
     {//jump,left,right,front,back,running
-        J, L, R, F, B, S, slot1, slot2, slot3, interact, drop, light
+        J, L, R, F, B, S, slot1, slot2, slot3, interact, drop, light, pause
     }
 
     [System.Serializable]
@@ -22,6 +22,36 @@ namespace ProjectL.Global.Script.Player
     {
         [Header("Key Bind")]
         [SerializeField] private KeyBinding[] bind;
+
+        private void Awake()
+        {
+            ReloadKeyBindings();
+        }
+
+        public void ReloadKeyBindings()
+        {
+            // Load custom keys from PlayerPrefs
+            for (int i = 0; i < bind.Length; i++)
+            {
+                string prefKey = "KeyBind_" + bind[i].action.ToString();
+                
+                // If the player has a saved key for this action, load it
+                if (PlayerPrefs.HasKey(prefKey))
+                {
+                    string savedKey = PlayerPrefs.GetString(prefKey);
+                    if (System.Enum.TryParse(savedKey, out KeyCode parsedKey))
+                    {
+                        bind[i].key = parsedKey;
+                    }
+                }
+                else
+                {
+                    // Otherwise, save the default key so the Main Menu can read it!
+                    PlayerPrefs.SetString(prefKey, bind[i].key.ToString());
+                }
+            }
+            PlayerPrefs.Save();
+        }
 
         private KeyCode MappedKey(InputAction action)
         {
@@ -95,6 +125,11 @@ namespace ProjectL.Global.Script.Player
         public bool GetFlashLight()
         {
             return Input.GetKeyDown(MappedKey(InputAction.light));
+        }
+
+        public bool GetPause()
+        {
+            return Input.GetKeyDown(MappedKey(InputAction.pause));
         }
     }
 

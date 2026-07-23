@@ -2252,6 +2252,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3278984579091035862, guid: ac93e37afb3df4f4e8996158e061efb4, type: 3}
+      propertyPath: m_TagString
+      value: Concrete
+      objectReference: {fileID: 0}
     - target: {fileID: 8771091787928289351, guid: ac93e37afb3df4f4e8996158e061efb4, type: 3}
       propertyPath: m_Name
       value: GDC_Map_Block_2

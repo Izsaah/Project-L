@@ -21,9 +21,15 @@ namespace ProjectL.Global.Script.Camera
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+        
+        private void Start()
+        {
+            // Load saved mouse sensitivity
+            mouseSens = PlayerPrefs.GetFloat("MouseSensitivity", 2f);
+        }
         private void Update()
         {
-            if (inputProvider == null) return;
+            if (inputProvider == null || Time.timeScale == 0f) return;
             Vector2 lookInput = inputProvider.GetLookDelta();
 
             float mX = lookInput.x * mouseSens;

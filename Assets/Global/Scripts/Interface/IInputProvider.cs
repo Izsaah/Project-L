@@ -16,6 +16,7 @@ namespace ProjectL.Scripts.Interface
         bool GetDropInput();//angry bird moment lol
         Vector2 GetLookDelta();//spicy stuff kinkky : ) 
         bool GetFlashLight();
+        bool GetPause();
     }
 
 }

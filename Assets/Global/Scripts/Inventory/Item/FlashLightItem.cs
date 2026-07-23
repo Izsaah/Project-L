@@ -14,6 +14,12 @@ namespace ProjectL.Global.Script.Item
         private void Start()
         {
             inputProvider = GetComponentInParent<IInputProvider>();
+            
+            // Make sure the flashlight is off when the game starts!
+            if (spotLight != null)
+            {
+                spotLight.enabled = false;
+            }
         }
 
         private void Update()
