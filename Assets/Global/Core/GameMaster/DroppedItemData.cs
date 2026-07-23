@@ -11,6 +11,7 @@ namespace ProjectL.Global.Core.GameMaster
         public String dropId;
         public ItemData itemInf;
         public Vector3 dropPos;
+        public string sceneName;
 
         [System.NonSerialized]
         public GameObject phy3Dmodel;

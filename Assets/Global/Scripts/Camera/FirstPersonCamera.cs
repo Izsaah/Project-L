@@ -23,7 +23,7 @@ namespace ProjectL.Global.Script.Camera
         }
         private void Update()
         {
-            if (inputProvider == null) return;
+            if (inputProvider == null || Time.timeScale == 0f) return;
             Vector2 lookInput = inputProvider.GetLookDelta();
 
             float mX = lookInput.x * mouseSens;
