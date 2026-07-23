@@ -49,6 +49,12 @@ namespace ProjectL.Global.Script.CutScenes
             dbImage.gameObject.SetActive(true);
             if (bgBlocker != null) bgBlocker.SetActive(true);
 
+            // Automatically hide objective text during cutscenes
+            if (ProjectL.Global.Scripts.Objectives.ObjectiveManager.Instance != null)
+            {
+                ProjectL.Global.Scripts.Objectives.ObjectiveManager.Instance.HideObjective();
+            }
+
             // Unlock mouse for the cutscene
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -163,6 +169,12 @@ namespace ProjectL.Global.Script.CutScenes
         {
             if (dbImage != null) dbImage.gameObject.SetActive(false);
             if (bgBlocker != null) bgBlocker.SetActive(false);
+
+            // Show objective text again after cutscene ends
+            if (ProjectL.Global.Scripts.Objectives.ObjectiveManager.Instance != null)
+            {
+                ProjectL.Global.Scripts.Objectives.ObjectiveManager.Instance.ShowObjective();
+            }
 
             // Lock the mouse back to the center of the screen when cutscene ends!
             Cursor.lockState = CursorLockMode.Locked;
