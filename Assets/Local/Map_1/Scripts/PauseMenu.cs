@@ -9,6 +9,8 @@ namespace ProjectL.Local.Map_1
     {
         public static bool GameIsPaused = false;
 
+        private ProjectL.Scripts.Interface.IInputProvider inputProvider;
+
         public GameObject pauseMenuUI;
         public string mainMenuSceneName = "MainMenu";
         // ADDED: This runs exactly once the moment the level loads.
@@ -18,10 +20,12 @@ namespace ProjectL.Local.Map_1
             GameIsPaused = false;
             Time.timeScale = 1f;
             pauseMenuUI.SetActive(false);
+
+            inputProvider = FindAnyObjectByType<ProjectL.Global.Script.Player.PlayerInputHandler>();
         }
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (inputProvider != null && inputProvider.GetPause() || Input.GetKeyDown(KeyCode.Escape))
             {
                 if (GameIsPaused)
                 {
@@ -41,6 +45,18 @@ namespace ProjectL.Local.Map_1
 
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+
+            // Show objective text again when unpaused
+            if (ProjectL.Global.Scripts.Objectives.ObjectiveManager.Instance != null)
+            {
+                ProjectL.Global.Scripts.Objectives.ObjectiveManager.Instance.ShowObjective();
+            }
+
+            // Show waypoint marker again when unpaused
+            if (ProjectL.Global.Scripts.Objectives.WaypointMarker.Instance != null)
+            {
+                ProjectL.Global.Scripts.Objectives.WaypointMarker.Instance.ShowMarker();
+            }
         }
         void Pause()
         {
@@ -50,6 +66,18 @@ namespace ProjectL.Local.Map_1
 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+
+            // Hide objective text while paused
+            if (ProjectL.Global.Scripts.Objectives.ObjectiveManager.Instance != null)
+            {
+                ProjectL.Global.Scripts.Objectives.ObjectiveManager.Instance.HideObjective();
+            }
+
+            // Hide waypoint marker while paused
+            if (ProjectL.Global.Scripts.Objectives.WaypointMarker.Instance != null)
+            {
+                ProjectL.Global.Scripts.Objectives.WaypointMarker.Instance.HideMarker();
+            }
         }
         public void LoadMenu()
         {
@@ -57,6 +85,54 @@ namespace ProjectL.Local.Map_1
             GameIsPaused = false;
 
             SceneManager.LoadScene(mainMenuSceneName);
+        }
+
+        public void SaveGame()
+        {
+            if (ProjectL.Global.Script.SaveSystem.SaveLoadManager.Instance != null)
+            {
+                ProjectL.Global.Script.SaveSystem.SaveLoadManager.Instance.SaveGame();
+            }
+            else
+            {
+                Debug.LogWarning("SaveLoadManager is missing! Cannot save game.");
+            }
+        }
+
+        public void LoadGame()
+        {
+            if (ProjectL.Global.Script.SaveSystem.SaveLoadManager.Instance != null)
+            {
+                // Unpause the game before loading to ensure time flows normally after load
+                Time.timeScale = 1f;
+                GameIsPaused = false;
+                ProjectL.Global.Script.SaveSystem.SaveLoadManager.Instance.LoadGame();
+            }
+            else
+            {
+                Debug.LogWarning("SaveLoadManager is missing! Cannot load game.");
+            }
+        }
+
+        // Hook this to your Volume Slider in the Pause Menu!
+        public void SetVolume(float volume)
+        {
+            AudioListener.volume = volume;
+            PlayerPrefs.SetFloat("GlobalVolume", volume);
+            PlayerPrefs.Save();
+        }
+
+        // Hook this to your Sensitivity Slider in the Pause Menu!
+        public void SetSensitivity(float sens)
+        {
+            PlayerPrefs.SetFloat("MouseSensitivity", sens);
+            PlayerPrefs.Save();
+            
+            var cam = FindAnyObjectByType<ProjectL.Global.Script.Camera.FirstPersonCamera>();
+            if (cam != null)
+            {
+                cam.mouseSens = sens;
+            }
         }
     }
 

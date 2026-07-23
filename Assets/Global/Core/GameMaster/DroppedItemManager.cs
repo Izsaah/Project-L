@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using ProjectL.Global.Script.Inventory;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 namespace ProjectL.Global.Core.GameMaster
 {
     public class DroppedItemManager : MonoBehaviour
@@ -14,8 +16,9 @@ namespace ProjectL.Global.Core.GameMaster
         public String RND(ItemData data, Vector3 pos, GameObject model)
         {
             string ID = System.Guid.NewGuid().ToString();
+            string currentScene = SceneManager.GetActiveScene().name;
 
-            allDropItems.Add(new DroppedItemData { dropId = ID, itemInf = data, dropPos = pos, phy3Dmodel = model });
+            allDropItems.Add(new DroppedItemData { dropId = ID, itemInf = data, dropPos = pos, sceneName = currentScene, phy3Dmodel = model });
 
 
             return ID;
