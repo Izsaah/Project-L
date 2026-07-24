@@ -4,7 +4,13 @@ namespace ProjectL.Local.Map_1
 {
     public class LightningGenerator : MonoBehaviour
     {
+        [Header("Visuals")]
         public Light lightningLight;
+        
+        [Header("Audio")]
+        public AudioSource thunderSound;
+
+        [Header("Timing")]
         public float minTime = 5f;
         public float maxTime = 15f;
 
@@ -20,6 +26,12 @@ namespace ProjectL.Local.Map_1
             while (true)
             {
                 yield return new WaitForSeconds(Random.Range(minTime, maxTime));
+
+                // Play the thunder sound!
+                if (thunderSound != null)
+                {
+                    thunderSound.Play();
+                }
 
                 // Flash
                 lightningLight.enabled = true;

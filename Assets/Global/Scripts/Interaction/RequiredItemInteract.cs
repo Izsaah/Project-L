@@ -88,7 +88,10 @@ namespace ProjectL.Global.Script.interaction
             int activeSlot = playerInventory.activeSlotIndex;
             if (activeSlot < 0 || activeSlot >= playerInventory.hotbarSlot.Length)
             {
-                GameManager.Instance.timeManager.UpdateTime(penaltyTimeInMinutes);
+                if (GameManager.Instance != null && GameManager.Instance.timeManager != null)
+                {
+                    GameManager.Instance.timeManager.UpdateTime(penaltyTimeInMinutes);
+                }
                 return;
             }
 
@@ -96,7 +99,10 @@ namespace ProjectL.Global.Script.interaction
 
             if (currentHeldItem == null || !requiredTool.Contains(currentHeldItem))
             {
-                GameManager.Instance.timeManager.UpdateTime(penaltyTimeInMinutes);
+                if (GameManager.Instance != null && GameManager.Instance.timeManager != null)
+                {
+                    GameManager.Instance.timeManager.UpdateTime(penaltyTimeInMinutes);
+                }
                 return;
             }
 
